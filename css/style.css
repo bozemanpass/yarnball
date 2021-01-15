@@ -1,0 +1,118 @@
+html,
+body {
+    width: 95%;
+    height: 100%;
+    margin: 20px;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h3 {
+    border-bottom: 1px solid #ddd;
+}
+
+code {
+  background-color: #efffff;
+  border-color: #eee;
+}
+
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid #dfdfdf;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+}
+
+pre code {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.query {
+    width: 65%;
+    margin-bottom: 0;
+}
+
+.query > tbody {
+    border: 0;
+}
+
+.query > tbody td {
+    padding: 0 0.6rem 0 0;
+}
+
+.results {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    margin-bottom: 1.5em;
+}
+
+.results span {
+    margin: 0 10px 0 0;
+    text-align: center;
+}
+
+.console textarea {
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    height: 18em;
+    color: white;
+    background-color: black;
+}
+
+.nomatch {
+    background-color: #eee;
+    border: 1px solid #dfdfdf;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+    color: #aaa;
+}
+
+.match {
+    background-color: #ffe19b;
+    border: 2px dashed #3773ff;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+    font-weight: bold;
+    color: #3773ff;
+}
+
+.satisfies {
+    background-color: #dfffdf;
+    border: 1px solid #aaffaa;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+    color: #77d664;
+}
+
+button, .button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0.75rem 0 1.0rem;
+    align-self: baseline;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem 1.0rem 2rem;
+    font-size: 1rem;
+    background-color: #008CBA;
+    border-color: #007095;
+    color: #fff;
+    transition: background-color 300ms ease-out;
+}

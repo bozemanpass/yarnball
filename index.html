@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <title>Yarnball: Yarn and NPM Versions Demystified</title>
+    <meta name="author" content="Thomas E Lackey">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css"
+          integrity="sha512-dMUQinc1gbNb95AFtKtP4q/g56T8r9oDxlWy0hrHyzfUbMq/vQztAqaR/FDY/bY0R1Ikc30aq94jyQH2Ix++ug=="
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script src="dist/bundle.js"></script>
+    <script src="dist/article.js"></script>
+    <script>
+      window.addEventListener('load', async () => {
+        const converter = new showdown.Converter();
+        const response = await fetch('ARTICLE.md');
+        const text = await response.text();
+        document.getElementById('content').innerHTML = converter.makeHtml(text);
+        nodeScriptReplace(document.getElementsByTagName('body')[0]);
+
+        addExamples();
+      });
+    </script>
+</head>
+
+<body>
+  <div id="content"></div>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</body>
+
+</html>

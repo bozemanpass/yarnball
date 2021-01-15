@@ -1,0 +1,43 @@
+{
+  "name": "@bozemanpass/yarnball",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/bozemanpass/yarnball.git"
+  },
+  "homepage": "https://bozemanpass.github.io/yarnball/",
+  "scripts": {
+    "article": "cat article.js | terser > dist/article.js",
+    "browserify": "browserify dist/index.js -s pkg-resolve | terser > dist/bundle.js",
+    "build": "yarn compile && yarn browserify && yarn article",
+    "clean": "rm -rf dist",
+    "compile": "tsc",
+    "start": "http-server -p 3000"
+  },
+  "bin": {
+    "yarnball": "bin/yarnball",
+    "yarnball-deep": "bin/yarnball-deep",
+    "yarnball-list": "bin/yarnball-list",
+    "yarnball-multiples": "bin/yarnball-multiples",
+    "yarnball-size": "bin/yarnball-size"
+  },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "dependencies": {
+    "assert": "^2.0.0",
+    "cross-fetch": "^3.0.6",
+    "semver": "^7.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.19",
+    "@types/semver": "^7.3.4",
+    "browserify": "^17.0.0",
+    "http-server": "^0.12.3",
+    "terser": "^5.5.1",
+    "typescript": "^4.1.3"
+  }
+}
