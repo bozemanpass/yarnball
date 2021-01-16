@@ -170,8 +170,8 @@ const createWidget = (example, name, version, showTags = true) => {
   submit.addEventListener('click', async () => {
     const resultsEl = document.getElementById(`results${example}`);
     resultsEl.innerHTML = '';
-    const name = document.getElementById(`name${example}`).value;
-    const requestedVersion = document.getElementById(`version${example}`).value;
+    const name = document.getElementById(`name${example}`).value || undefined;
+    const requestedVersion = document.getElementById(`version${example}`).value || undefined;
     const result = await resolvePackageVersion(name, requestedVersion);
     const sortedKeys = Object.keys(result.versions).sort(versionCompare);
     for (const version of sortedKeys) {
