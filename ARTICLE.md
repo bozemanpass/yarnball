@@ -200,6 +200,7 @@ Generally, pre-release versions are not matched unless specifically requested.  
 1.3.9-alpha.1
 1.3.9-beta.4
 1.3.9-rc.0
+1.3.10-alpha.0
 ```
 
 The range ^1.3.8 would not match any of the 1.3.9-_xyz_ pre-releases.  But which version would you
@@ -210,13 +211,15 @@ expect ^1.3.9-alpha.1 to match?  Better yet, why?
 A range that includes a pre-release version is resolved by looking for:
 
 1. Higher versions in the whole compatible range that are _without_ a pre-release string (e.g. 1.3.10).
-2. The highest _lexical_ pre-release string in exactly the same patch range.
+2. The highest _lexical_ pre-release string with the same _MAJOR.Minor.patch_.
 
 So in this case, 1.3.9-alpha.1 will resolve to 1.3.9-rc.0, but not because "rc" stands for "release candidate",
 or because it was published later, but simply because "r" comes after "a" in the alphabet.
 
-If 1.3.10 is published down the road, ^1.3.9-alpha.1 would cease to resolve to the pre-release version and would
-instead choose 1.3.10, since a regular version always has higher precendence than a pre-release.
+1.3.10-alpha.0 will not be selected because it does not have the same _MAJOR.Minor.patch_ value.
+
+However, if 1.3.10 is published down the road, ^1.3.9-alpha.1 would select 1.3.10, since a regular version
+always has higher precendence than a pre-release version.
 
 For the package publisher there is another important quirk of pre-releases.  Since the pre-release
 portion is baked into version it is a stumblingblock for "promoting" releases.
