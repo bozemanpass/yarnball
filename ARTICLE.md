@@ -25,7 +25,7 @@ the next bug fix (_patch_) version would be 1.0.1; the next feature release vers
 and the next release that changes how things work would be (_MAJOR_) would have version 2.0.0.
 
 But this semantic versioning scheme isn't just used by package publishers to communicate their intentions with new releases. There's a second half to the story:
-When a dependent package is added to a project using `yarn add`, its latst version (more on that later) is automatically inserted in the `package.json` file like so:
+when a dependent package is added to a project using `yarn add`, its latest version (more on that later) is automatically inserted in the `package.json` file like so:
 
 ```
   "dependencies": {
