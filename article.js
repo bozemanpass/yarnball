@@ -185,9 +185,11 @@ const createWidget = (example, name, version, showTags = true) => {
       span.className = className;
       span.innerText = version;
       if (showTags) {
+        let tagCount = 0;
         for (const [tag, tagVer] of Object.entries(result.tags)) {
           if (version === tagVer) {
-            span.innerText += `@${tag}`;
+            span.innerText += `${tagCount === 0 ? '@' : ','}${tag}`;
+            tagCount++;
           }
         }
       }
@@ -198,10 +200,10 @@ const createWidget = (example, name, version, showTags = true) => {
 
 const addExamples = () => {
   createWidget('IDV-A', '@bozemanpass/hairball', '^0.1.0', false);
-  createWidget('PR-A', '@bozemanpass/hairball', '^1.3.9-alpha.1', false);
   createWidget('tag-A', '@bozemanpass/example', '^1.0.0');
   createWidget('tag-B', '@bozemanpass/example', '^1.0.1');
   createWidget('tag-C', '@bozemanpass/example', 'alpha');
   createWidget('tag-D', '@bozemanpass/example-after', '^1.0.1');
+  createWidget('PR-A', '@bozemanpass/hairball', '^1.3.9-alpha.1', false);
   createConsole('con-A', 'yarnball log4js ^6.0.0');
 }
