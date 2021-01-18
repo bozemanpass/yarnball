@@ -34,7 +34,7 @@ When a dependent package is added to a project using `yarn add`, its latst versi
 ```
 
 The `^` symbol specifies a _version range_ and says, "I want the highest _compatible_ match greater than or equal to this version."
-Today that might be 1.0.0, but in the future could easily be 1.1.1, or even 1.17.33. It's important to note that `^` and friends are an invention of npm and yarn, not
+Today that might be 1.0.0, but in the future could easily be 1.1.1, or even 1.17.33. It's important to note that `^` and friends are an [invention of npm and yarn](https://docs.npmjs.com/cli/v6/using-npm/semver#advanced-range-syntax), not
 mentioned anywhere in the SemVer specification itself.
 
 The version downloaded from the registry and used by the dependent package is
