@@ -9,9 +9,9 @@
   },
   "homepage": "https://bozemanpass.github.io/yarnball/",
   "scripts": {
-    "article": "cat article.js | terser > dist/article.js",
+    "terser": "cat article.js | terser > dist/article.js && cat widgets.js | terser > dist/widgets.js",
     "browserify": "browserify dist/index.js -s pkg-resolve | terser > dist/bundle.js",
-    "build": "yarn compile && yarn browserify && yarn article",
+    "build": "yarn compile && yarn browserify && yarn terser",
     "clean": "rm -rf dist",
     "compile": "tsc",
     "start": "http-server -p 3000"
