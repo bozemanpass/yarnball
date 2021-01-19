@@ -131,7 +131,7 @@ const createWidget = (example, name, version, { showTags = true, buttonTxt = 'Tr
   <table class="query">
     <tr>
       <td width="60%"><label>Package Name</label><input id="name${example}" type="text" value="${name}" /></td>
-      <td width="20%"><label>Range</label><input id="version${example}" type="text" value="${version}" /></td>
+      <td width="20%"><label>Range/Tag</label><input id="version${example}" type="text" value="${version}" /></td>
       <td width="20%"><button id="submit${example}">${buttonTxt}</button></td>
     </tr>
   </table>

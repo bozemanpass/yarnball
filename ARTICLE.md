@@ -58,7 +58,7 @@ something special happens, but the [npm documentation](https://docs.npmjs.com/cl
 The one sure way to find out is to try it &ndash; perhaps by finding a package published with a diverse set of versions, create a dependent package specifying
 ^0.1.0, then run `yarn install` and finally run `yarn why`.
 
-But we don't need to that at all, because for this article, we are going to run yarn's package resolution logic in the browser with the "yarnball widget": the results
+But we don't need to that at all, because for this article we are going to run yarn's package resolution logic in the browser with the "yarnball widget": the results
 you see will be identical to those on the command line &ndash; because it is using the same code as the command line.
 
 When you press the "Try It" button below, the
@@ -83,7 +83,7 @@ appear to contain _MAJOR_, breaking changes, rendering the `^` range operator co
 
 The bottom line is that "zero is special". Some developers like to just never publish with a zero version, ensuring that their life will be free at least of this one complication.
 
-### Registry Tags - x.y.z@bar
+### Registry Tags &ndash; x.y.z@bar
 
 Whenever a package version is published, it is assigned a "package distribution tag" by the registry. Tags aren't mentioned in either the
 SemVer spec, or npm's version range resolution documentation, but that doesn't mean you can ignore them. If no tag is specified
@@ -108,7 +108,7 @@ beta: 1.0.2
 latest: 1.0.0
 ```
 
-A dependent package would have an entry in its `package.json` similar to:
+A package that depended on `@bozemanpass/example` would have an entry in its `package.json` similar to:
 
 ```
   "dependencies": {
@@ -199,7 +199,7 @@ was satisfied by the "latest" version, and so other versions were not considered
 The manner in which tags affect version resolution, especially the implicit "latest" tag, is one of the least
 documented aspects of [yarn](https://yarnpkg.com/) and [npm](https://www.npmjs.com/get-npm), but as the examples show, one with significant practical consequences.
 
-### Pre-release Versions - x.y.z-a.b
+### Pre-release Versions &ndash; x.y.z-a.b
 
 The SemVer spec also allows for a "pre-release version" that can be indicated by adding an hyphen after the _patch_
 portion, followed by "dot separated identifiers".  There are many forms this can take, but a common one is something like:
@@ -265,11 +265,11 @@ Among other things, we showed above that:
 
 ## yarn.lock
 
-You might be wondering "doesn't yarn.lock solve these kinds of version resolution surprises?". The short answer is "not really" because
-yarn.lock (and its npm sibling package-lock.json) are never included in a published package. These files only exist in a source code 
-environment (where yarn install would be run) and only affect resolution of "first level" dependencies of that source code project.
-In reality yarn.lock can make things more confusing not less, and leads to having multiple different versions of the same package.
-For a longer answer see [this article](https://gajus.medium.com/stop-using-package-lock-json-or-yarn-lock-909035e94328).
+You might be wondering, "Doesn't yarn.lock solve these kinds of version resolution surprises?" The short answer is "not really"
+because yarn.lock (and its npm sibling package-lock.json) only affects the source code project where `yarn install` is run.
+The yarn.lock files of dependencies will not be used. This can make things more confusing not less, since you probably imagined
+that the versions specified in your yarn.lock file&ndash;the versions you tested with before publishing your package&ndash;would also be used
+at runtime, when that may not be the case.  For a longer answer see [this article](https://gajus.medium.com/stop-using-package-lock-json-or-yarn-lock-909035e94328).
 
 ## Command Line Yarnball
 
