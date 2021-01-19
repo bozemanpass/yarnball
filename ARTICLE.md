@@ -52,19 +52,20 @@ The [spec](https://semver.org) mentions that a _MAJOR_ version of 0 can be used 
 development?  In the context of SemVer, it indicates, "Anything MAY change at any time. The public API SHOULD NOT be considered stable."
 
 That is clear enough as far as it goes, but does it mean anything when resolving versions with npm and yarn? 
-What version would ^0.1.0 resolve?  What about ^0.0.2? The fact that zero gets particular mention gives a hint that
-something probably special happens but the [npm documentation](https://docs.npmjs.com/cli/v6/using-npm/semver#caret-ranges-123-025-004) isn't exactly clear.
+What version would ^0.1.0 resolve?  What about ^0.0.2? The fact that zero gets particular mention gives a hint that probably
+something special happens, but the [npm documentation](https://docs.npmjs.com/cli/v6/using-npm/semver#caret-ranges-123-025-004) isn't exactly clear.
 
-The one sure way to find out is to try it &ndash; perhaps find a package published with a diverse set of versions, create a dependent package specifying
+The one sure way to find out is to try it &ndash; perhaps by finding a package published with a diverse set of versions, create a dependent package specifying
 ^0.1.0, then run `yarn install` and finally run `yarn why`.
 
-But we don't need to do all that because for this article, because it possible to run yarn's package resolution logic in the browser with the "yarnball widget": the results
+But we don't need to that at all, because for this article, we are going to run yarn's package resolution logic in the browser with the "yarnball widget": the results
 you see will be identical to those on the command line &ndash; because it is using the same code as the command line.
+
 When you press the "Try It" button below, the
 [code that deals with package resolution](https://github.com/bozemanpass/yarnball/tree/main/src/yarn) in [yarn](https://yarnpkg.com/) is executed. 
-It communicates with a live
-npm registry, retrieves package metadata for a [package published for the purpose](https://www.npmjs.com/package/@bozemanpass/hairball) featuring an interesting set of versions, 
-then highlights the version yarn would resolve.
+
+It communicates with a live npm registry, retrieves package metadata for a [package published for the purpose](https://www.npmjs.com/package/@bozemanpass/hairball)
+featuring an interesting set of versions, then highlights the version which yarn would resolve.
 
 > Resolution queries are executed live, so you can experiment with any other packages and versions
 > by editing the parameters to the examples.  In the results, an orange highlight designates the resolved version,
