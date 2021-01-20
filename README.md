@@ -1,6 +1,10 @@
 # yarnball
 
-Yarn and NPM Versions Demystified
+npm versions demystified
+
+## Live
+
+Yarnball runs in the browser: [http://yarnball.pages.bozemanpass.com/yarnball.html](http://yarnball.pages.bozemanpass.com/yarnball.html)
 
 ## Install
 
@@ -47,4 +51,4 @@ Example output:
 }
 ```
 
-For more information see: https://bozemanpass.github.io/yarnball/
+For more information see: [http://yarnball.pages.bozemanpass.com](http://yarnball.pages.bozemanpass.com)
