@@ -1,11 +1,11 @@
 {
   "name": "@bozemanpass/yarnball",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/bozemanpass/yarnball.git"
+    "type": "git",
+    "url": "https://github.com/bozemanpass/yarnball.git"
   },
   "homepage": "http://yarnball.pages.bozemanpass.com/",
   "scripts": {
