@@ -24,7 +24,10 @@
 const { resolvePackageVersion, deepResolvePackageVersions, versionCompare } = window.pkgResolve;
 
 const fixCliParams = (name, version) => {
-  if (!version && name.slice(1).indexOf('@') > 0) {
+  if (version && version.startsWith('@')) {
+    version = version.slice(1);
+  }
+  else if (!version && name.slice(1).indexOf('@') > 0) {
     const namespaced = name.startsWith('@');
     // TEL 20200114: Had to remove the regex split(/(?<!^)@/, 2) because it was incompatible with Safari.
     [name, version] = name.slice(namespaced ? 1 : 0).split('@', 2);
@@ -142,9 +145,9 @@ const createWidget = (example, name, version, { showTags = true, buttonTxt = 'Tr
   submit.addEventListener('click', async () => {
     const resultsEl = document.getElementById(`results${example}`);
     resultsEl.innerHTML = '';
-    const name = document.getElementById(`name${example}`).value || undefined;
-    const requestedVersion = document.getElementById(`version${example}`).value || undefined;
-    const result = await resolvePackageVersion(name, requestedVersion);
+    const { name, version } = fixCliParams(document.getElementById(`name${example}`).value || undefined,
+    document.getElementById(`version${example}`).value || undefined);
+    const result = await resolvePackageVersion(name, version);
     const sortedKeys = Object.keys(result.versions).sort(versionCompare);
     for (const version of sortedKeys) {
       const span = document.createElement("span");

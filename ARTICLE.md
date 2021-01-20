@@ -262,6 +262,8 @@ Among other things, we showed above that:
 
 * The pre-release string "alpha" has absolutely nothing to do with a tag "alpha", except perhaps in the mind of a human.
 
+The [standalone yarnball page](http://yarnball.pages.bozemanpass.com/yarnball.html) is a handy way to examine packages
+and see how these rules apply.
 
 ## yarn.lock
 

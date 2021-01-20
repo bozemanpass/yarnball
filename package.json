@@ -7,7 +7,7 @@
     "type" : "git",
     "url" : "https://github.com/bozemanpass/yarnball.git"
   },
-  "homepage": "https://bozemanpass.github.io/yarnball/",
+  "homepage": "http://yarnball.pages.bozemanpass.com/",
   "scripts": {
     "terser": "cat article.js | terser > dist/article.js && cat widgets.js | terser > dist/widgets.js",
     "browserify": "browserify dist/index.js -s pkg-resolve | terser > dist/bundle.js",
